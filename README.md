@@ -1,4 +1,8 @@
 # Lander farewell page
+[Launch](https://dhmartinj23.github.io/Hitachi-Lander/)
+
+<img width="186" height="186" alt="image" src="https://github.com/user-attachments/assets/cd803ba5-7fae-4d91-8614-840dc4ea689c" />
+
 
 A mobile-friendly, static thank-you and contact page built around the supplied lander, mothership, and space images. It uses plain HTML, CSS, and JavaScript; no build step or package installation is needed.
 
