@@ -1,0 +1,98 @@
+{
+  "profile": {
+    "name": "Thangamariappan P",
+    "title": "AI & Digital Transformation Specialist",
+    "currentCompany": "Hitachi Energy",
+    "location": "Chennai, Tamil Nadu, India",
+    "photo": "Profile.png",
+    "locationCoordinates": {
+      "latitude": 13.0827,
+      "longitude": 80.2707,
+      "label": "Chennai, India",
+      "isPlaceholder": true,
+      "googleMapsUrl": "https://www.google.com/maps/place/Chennai,+Tamil+Nadu,+India"
+    },
+    "email": "dhmartin.j23@hotmail.com",
+    "mobile": "+918754958089",
+    "linkedin": "https://www.linkedin.com/in/thangamariappan-p-528a3b99/",
+    "experience": {
+      "totalYears": "12.5+"
+    }
+  },
+  "Skills": {
+    "aiAndAgentic": [
+      "Microsoft Copilot Studio",
+      "Generative AI",
+      "Agentic AI",
+      "Azure OpenAI",
+      "Prompt Engineering",
+      "Retrieval Augmented Generation (RAG)",
+      "AI Orchestration",
+      "Conversational AI",
+      "Knowledge Management Solutions"
+    ],
+    "powerPlatform": [
+      "Power Apps",
+      "Power Automate",
+      "Power BI",
+      "Dataverse",
+      "Power Platform Governance",
+      "ALM",
+      "DLP Policies",
+      "Enterprise Deployment Pipelines"
+    ],
+    "architecture": [
+      "Solution Architecture",
+      "Enterprise Integration",
+      "API Strategy",
+      "System Design",
+      "Technical Leadership",
+      "Digital Transformation",
+      "Automation Strategy"
+    ],
+    "cloudAndData": [
+      "Azure AI Search",
+      "Azure Services",
+      "Data Integration",
+      "Knowledge Repositories",
+      "Enterprise Data Platforms"
+    ]
+  },
+  "domains": [
+    {
+      "domain": "Energy & Power Transmission",
+      "experience": "4+ Years",
+      "organization": "Hitachi Energy"
+    },
+    {
+      "domain": "Automotive Manufacturing",
+      "experience": "5+ Years",
+      "organization": "Ashok Leyland"
+    },
+    {
+      "domain": "Manufacturing & Industrial Operations",
+      "experience": "12.5+ Years"
+    },
+    {
+      "domain": "Research & Development",
+      "experience": "Multiple Enterprise Projects"
+    },
+    {
+      "domain": "Digital Transformation",
+      "experience": "Enterprise Wide Initiatives"
+    }
+  ],
+  "keyStrengths": [
+    "Technical Leadership",
+    "Enterprise Solution Design",
+    "AI Strategy & Implementation",
+    "Stakeholder Management",
+    "Platform Governance",
+    "Process Automation",
+    "Innovation & Continuous Improvement",
+    "Cross Functional Collaboration"
+  ],
+  "professionalBrand": {
+    "headline": "Accelerating Industrial Innovation with AI Agents, Copilot Studio, and Power Platform"
+  }
+}

@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#06101d" />
+    <meta name="description" content="A cinematic space mission storyboard." />
+    <title>Mission Control</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="launch.js" defer></script>
+  </head>
+  <body>
+    <main class="launch-screen" id="launch-screen" aria-labelledby="launch-title">
+      <section class="launch-panel">
+        <div class="launch-topline"><span>MISSION CONTROL</span><span><i></i> STANDBY</span></div>
+        <div class="launch-route" aria-hidden="true">
+          <span class="launch-endpoint"><span class="launch-symbol">⌁</span>LANDER / 01</span>
+          <span class="launch-route-line"><b>UPLINK REQUEST</b><i></i></span>
+          <span class="launch-endpoint"><span class="launch-symbol">◇</span>MOTHERSHIP</span>
+        </div>
+        <p class="launch-kicker">CREW DOSSIER · AUTHORIZATION REQUIRED</p>
+        <h1 id="launch-title">Establish contact.</h1>
+        <p class="launch-description">Send a signal from the lander to the mothership to retrieve <strong>Thanga’s information</strong>?</p>
+        <button class="launch-button" id="launch-button" type="button"><span aria-hidden="true">↗</span><span id="launch-button-label">CONFIRM &amp; SEND SIGNAL</span></button>
+        <p class="launch-status" id="launch-status" role="status">Awaiting your confirmation. Transmission starts only when you’re ready.</p>
+        <div class="launch-bottomline"><span>EARTH ↔ ORBIT</span><span>SECURE PERSONNEL LINK / 01</span></div>
+        <noscript><p class="launch-description">Enable JavaScript to send the signal and view the crew dossier.</p></noscript>
+      </section>
+    </main>
+    <section class="cinema" id="home" tabindex="-1" hidden aria-label="A cinematic signal travels from the farewell lander to the mothership and back">
+      <div class="storyboard-frame" aria-hidden="true">
+        <img id="storyboard-image-a" class="is-visible" data-src="Scene 1.jpg" alt="" />
+        <img id="storyboard-image-b" data-src="Scene 2.jpg" alt="" />
+      </div>
+      <canvas class="three-ambience" id="three-ambience" aria-hidden="true"></canvas>
+      <svg class="vector-hud" viewBox="0 0 1600 900" preserveAspectRatio="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="hud-line" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#77f1ff" stop-opacity=".72" />
+            <stop offset=".5" stop-color="#61d8ff" stop-opacity=".22" />
+            <stop offset="1" stop-color="#78f5ff" stop-opacity=".62" />
+          </linearGradient>
+          <linearGradient id="hud-scan" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#78efff" stop-opacity="0" />
+            <stop offset=".5" stop-color="#78efff" stop-opacity=".2" />
+            <stop offset="1" stop-color="#78efff" stop-opacity="0" />
+          </linearGradient>
+        </defs>
+        <g class="hud-grid" fill="none" stroke="#8cecff" stroke-width="1">
+          <path d="M38 102V48h54M1562 102V48h-54M38 798v54h54M1562 798v54h-54" />
+          <path d="M38 130v-14h14M1562 130v-14h-14M38 770v14h14M1562 770v14h-14" />
+          <path d="M66 450h18m1450 0h-18M800 34v16m0 816v16" opacity=".38" />
+          <path d="M110 80h170M1490 80h-170M110 820h170M1490 820h-170" opacity=".3" />
+        </g>
+        <g class="hud-profile-frame" fill="none" stroke="#79e8ff" stroke-width="1.2">
+          <path class="profile-corners" id="profile-corners" d="" />
+          <path class="profile-name-link" id="profile-name-link" d="" opacity=".38" />
+          <path class="frame-trace" id="frame-trace" d="" />
+        </g>
+        <circle class="hud-profile-node" r="3" fill="#a8f7ff">
+          <animateMotion id="profile-node-motion" dur="6s" repeatCount="indefinite" path="M0 0" />
+          <animate attributeName="opacity" values=".25;1;.25" dur="2s" repeatCount="indefinite" />
+        </circle>
+        <circle class="hud-orbit" cx="142" cy="746" r="18" fill="none" stroke="#78eaff" stroke-width="1" stroke-dasharray="3 5">
+          <animateTransform attributeName="transform" type="rotate" from="0 142 746" to="360 142 746" dur="16s" repeatCount="indefinite" />
+        </circle>
+        <rect class="hud-sweep" x="80" y="-90" width="1440" height="90" fill="url(#hud-scan)">
+          <animate attributeName="y" from="-90" to="900" dur="5s" repeatCount="indefinite" />
+        </rect>
+        <g class="hud-points" fill="#9af5ff">
+          <circle cx="106" cy="146" r="2"><animate attributeName="opacity" values=".2;1;.2" dur="1.8s" repeatCount="indefinite" /></circle>
+          <circle cx="1492" cy="742" r="2"><animate attributeName="opacity" values="1;.25;1" dur="2.2s" repeatCount="indefinite" /></circle>
+          <circle cx="1490" cy="208" r="1.5"><animate attributeName="opacity" values=".25;.9;.25" dur="1.5s" repeatCount="indefinite" /></circle>
+        </g>
+      </svg>
+      <section class="profile-window" id="profile-window" aria-label="Crew member profile">
+        <div class="profile-window-head">
+          <span class="profile-window-brandmark" aria-hidden="true">
+            <canvas class="three-header-canvas" id="three-header-cube" aria-hidden="true"></canvas>
+          </span>
+          <span class="mission-heading"><strong>MISSION CONTROL</strong><small><span id="mission-company">COMPANY</span> <i>·</i> CREW DOSSIER / 01</small></span>
+          <span class="mission-header-location" id="mission-header-location">EARTH STATION <i>·</i> LOCATION</span>
+          <span class="profile-window-status" role="img" aria-label="Secure connection" title="Secure connection"><i aria-hidden="true"></i><span class="connection-status-label" aria-hidden="true">SECURE CONNECTION</span></span>
+          <div class="profile-zoom-controls" role="group" aria-label="Profile zoom controls">
+            <button id="zoom-out" type="button" aria-label="Zoom out" title="Zoom out">−</button>
+            <button id="zoom-in" type="button" aria-label="Zoom in" title="Zoom in">+</button>
+          </div>
+        </div>
+        <div class="profile-window-body hud-dashboard" aria-label="Live mission telemetry and crew dossier">
+          <svg class="dashboard-hud-frame" viewBox="0 0 1600 760" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+              <filter id="dashboard-hud-glow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+              <linearGradient id="dashboard-hud-stroke" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#79f0ff" stop-opacity=".9"/><stop offset=".48" stop-color="#57c9f3" stop-opacity=".38"/><stop offset="1" stop-color="#a5f6ff" stop-opacity=".8"/></linearGradient>
+              <linearGradient id="dashboard-hud-scan-gradient" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#78efff" stop-opacity="0"/><stop offset=".5" stop-color="#78efff" stop-opacity=".42"/><stop offset="1" stop-color="#78efff" stop-opacity="0"/></linearGradient>
+              <clipPath id="dashboard-hud-scan-clip" clipPathUnits="userSpaceOnUse"><path d="M52 112V76Q52 48 80 48H472L548 101Q563 112 584 112H1016Q1037 112 1052 101L1128 48H1520Q1548 48 1548 76V278L1525 302V448L1548 472V610Q1548 636 1520 636H1110L1058 590Q1048 580 1030 580H570Q552 580 540 590L490 636H80Q52 636 52 610V482L75 458V302L52 278Z"/></clipPath>
+            </defs>
+            <rect class="dashboard-hud-scan" x="0" y="-80" width="1600" height="72" fill="url(#dashboard-hud-scan-gradient)" clip-path="url(#dashboard-hud-scan-clip)"><animate attributeName="y" from="-80" to="760" dur="6s" repeatCount="indefinite"/></rect>
+            <path class="hud-frame-outline" d="M52 112V76Q52 48 80 48H472L548 101Q563 112 584 112H1016Q1037 112 1052 101L1128 48H1520Q1548 48 1548 76V278L1525 302V448L1548 472V610Q1548 636 1520 636H1110L1058 590Q1048 580 1030 580H570Q552 580 540 590L490 636H80Q52 636 52 610V482L75 458V302L52 278Z"/>
+            <path class="hud-frame-inner" d="M72 128V96Q72 70 98 70H466L534 118Q550 130 572 130H1028Q1050 130 1066 118L1134 70H1502Q1528 70 1528 96V286L1507 308V442L1528 464V588Q1528 612 1502 612H1120L1068 568Q1056 558 1038 558H562Q544 558 532 568L484 612H98Q72 612 72 588V474L93 452V308L72 286Z"/>
+            <path class="hud-frame-rail" d="M76 664C305 687 535 679 800 676S1295 687 1524 664"/>
+            <path class="hud-frame-rail hud-frame-rail-short" d="M88 682C250 699 365 697 490 691M1110 691C1235 697 1350 699 1512 682"/>
+            <path class="hud-frame-tick" d="M78 174v45m0 24v30M1522 174v45m0 24v30M650 96H950M650 80V96M680 88V96M710 84V96M740 88V96M770 80V96M800 84V96M830 88V96M860 80V96M890 84V96M920 88V96M950 80V96M800 620v23m-35-20v12m70-12v12"/>
+            <path class="hud-frame-signal" d="M90 108H465L532 160H680M920 160h148l67-52h375M90 578H432l73 53h160M930 631h165l73-53h344"/>
+            <circle class="hud-frame-node" cx="90" cy="108" r="3"/><circle class="hud-frame-node" cx="1510" cy="108" r="3"/><circle class="hud-frame-node" cx="90" cy="578" r="3"/><circle class="hud-frame-node" cx="1510" cy="578" r="3"/>
+            <path class="hud-frame-trace" d="M94 48h102M1404 48h102M52 300v76M1548 300v76M94 636h102M1404 636h102"/>
+          </svg>
+          <aside class="hud-column hud-column-left" aria-label="Crew telemetry">
+            <section class="dashboard-panel signal-panel">
+              <div class="dashboard-panel-head"><span>COMMS / SIGNAL TRACE</span><i class="dashboard-live"><b></b> LIVE</i></div>
+              <svg class="signal-chart" viewBox="0 0 320 150" preserveAspectRatio="none" role="img" aria-label="Animated communication signal chart">
+                <defs><linearGradient id="signal-fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#64eaff" stop-opacity=".42"/><stop offset="1" stop-color="#64eaff" stop-opacity="0"/></linearGradient></defs>
+                <path class="chart-grid" d="M12 20H308M12 48H308M12 76H308M12 104H308M12 132H308M40 12V136M96 12V136M152 12V136M208 12V136M264 12V136" />
+                <path class="signal-chart-fill" id="signal-chart-fill" d="" />
+                <polyline class="signal-chart-line" id="signal-chart-line" points="" />
+                <path class="chart-axis" d="M12 136H308M12 12V136" />
+                <text x="14" y="147">−30s</text><text x="143" y="147">−15s</text><text x="281" y="147">NOW</text>
+              </svg>
+              <div class="chart-readout"><span>UPLINK QUALITY</span><strong id="dashboard-signal-value">98.4%</strong><span class="chart-readout-secondary">PACKET FLOW <b id="dashboard-packet-value">1.42</b> GB/S</span></div>
+            </section>
+            <section class="dashboard-panel load-panel fuel-load-panel" aria-label="Fuel core and live system load">
+              <div class="dashboard-panel-head"><span>FUEL CORE / SYSTEM LOAD</span><span class="panel-code">NOMINAL</span></div>
+              <div class="load-panel-main">
+                <div class="mini-gauge fuel-core-gauge">
+                  <svg viewBox="0 0 100 100" aria-hidden="true"><circle class="gauge-track" cx="50" cy="50" r="37"/><circle class="gauge-progress gauge-fuel" id="fuel-gauge" cx="50" cy="50" r="37"/></svg>
+                  <strong><span id="fuel-gauge-value">93</span><small>FUEL CORE</small></strong>
+                </div>
+                <div class="load-rows">
+                  <div class="load-row"><span>SYS</span><i><b id="load-sys" style="width:94%"></b></i><strong id="load-sys-value">94</strong></div>
+                  <div class="load-row"><span>ENG</span><i><b id="load-eng" style="width:96%"></b></i><strong id="load-eng-value">96</strong></div>
+                  <div class="load-row"><span>NAV</span><i><b id="load-nav" style="width:89%"></b></i><strong id="load-nav-value">89</strong></div>
+                  <div class="load-row"><span>COM</span><i><b id="load-com" style="width:91%"></b></i><strong id="load-com-value">91</strong></div>
+                </div>
+              </div>
+            </section>
+            <section class="dashboard-panel service-panel">
+              <div class="dashboard-panel-head"><span>CREW SERVICE RECORD</span><span class="panel-code">DATA / 03</span></div>
+              <div class="service-metrics">
+                <div><span>INDUSTRY</span><strong id="experience-total">—</strong><small>YEARS</small><svg viewBox="0 0 180 28" aria-hidden="true"><path class="metric-track" d="M1 24H179"/><path class="metric-fill metric-fill-a" d="M1 24H156"/></svg></div>
+                <div><span>ENERGY</span><strong id="experience-energy">—</strong><small>YEARS</small><svg viewBox="0 0 180 28" aria-hidden="true"><path class="metric-track" d="M1 24H179"/><path class="metric-fill metric-fill-b" d="M1 24H96"/></svg></div>
+                <div><span>AUTOMOTIVE</span><strong id="experience-auto">—</strong><small>YEARS</small><svg viewBox="0 0 180 28" aria-hidden="true"><path class="metric-track" d="M1 24H179"/><path class="metric-fill metric-fill-c" d="M1 24H112"/></svg></div>
+              </div>
+              <div class="dashboard-tags-label">SKILL MATRIX <span>· SCROLL</span></div>
+              <div class="dashboard-tags" id="profile-skills" aria-label="Areas of expertise"></div>
+            </section>
+          </aside>
+
+          <section class="profile-copy profile-center-window" aria-label="Crew member identity and contact information">
+            <div class="center-window-topline"><span>PERSONNEL FILE <i>·</i> ACTIVE CREW</span><span class="center-file-id">H.E. / 01</span></div>
+            <p class="profile-kicker"><span class="profile-kicker-dot"></span><span id="profile-kicker">SECURE IDENTITY</span><span>·</span> VERIFIED</p>
+            <h1 class="profile-name-heading"><span id="profile-name" aria-label="Crew member name">Loading profile…</span><span class="name-caret" aria-hidden="true"></span><span class="name-underline" aria-hidden="true"></span></h1>
+            <p class="profile-title" id="profile-title"></p>
+            <p class="profile-summary" id="profile-summary"></p>
+            <div class="center-contact-grid" aria-label="Contact details">
+              <div class="center-contact-item"><span class="contact-card-icon" aria-hidden="true">◎</span><span><small>LOCATION</small><a id="profile-location" href="#location-map-card" aria-label="View location map">Not provided</a></span></div>
+              <div class="center-contact-item"><span class="contact-card-icon" aria-hidden="true">✉</span><span><small>EMAIL</small><strong id="profile-email">Not provided</strong></span></div>
+              <div class="center-contact-item"><span class="contact-card-icon" aria-hidden="true">☎</span><span><small>PHONE</small><strong id="profile-phone">Not provided</strong></span></div>
+              <div class="center-contact-item"><span class="contact-card-icon linkedin-mark" aria-hidden="true">in</span><span><small>LINKEDIN</small><strong id="profile-linkedin">Not provided</strong></span></div>
+            </div>
+          </section>
+
+          <aside class="hud-column hud-column-right" aria-label="Navigation and domain analytics">
+            <section class="dashboard-panel domain-panel location-map-panel" id="location-map-card" tabindex="-1" aria-label="Location map">
+              <div class="dashboard-panel-head"><span>LOCATION / MAP</span><span class="panel-code">GOOGLE MAPS ↗</span></div>
+              <a class="dashboard-map-link" id="dashboard-map-link" href="https://www.google.com/maps/place/Chennai,+Tamil+Nadu,+India" target="_blank" rel="noopener noreferrer" aria-label="Open current location in Google Maps">
+                <iframe id="dashboard-map-frame" title="Map preview of the current crew location" loading="lazy" referrerpolicy="no-referrer-when-downgrade" tabindex="-1" aria-hidden="true"></iframe>
+                <span class="dashboard-map-shade" aria-hidden="true"></span>
+                <span class="dashboard-map-pin" aria-hidden="true"><i></i></span>
+                <span class="dashboard-map-location"><small>CURRENT LOCATION</small><strong id="dashboard-map-location">CHENNAI, TAMIL NADU, INDIA</strong></span>
+                <span class="dashboard-map-action">OPEN IN GOOGLE MAPS <b>↗</b></span>
+              </a>
+            </section>
+            <section class="dashboard-panel radar-panel">
+              <div class="dashboard-panel-head"><span>ORBITAL / TRACKING</span><i class="dashboard-live"><b></b> LOCKED</i></div>
+              <svg class="radar-chart" viewBox="0 0 420 210" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Animated orbital tracking radar with range scale">
+                <defs><radialGradient id="radar-glow"><stop offset="0" stop-color="#48dfff" stop-opacity=".2"/><stop offset="1" stop-color="#48dfff" stop-opacity="0"/></radialGradient></defs>
+                <circle class="radar-glow" cx="140" cy="103" r="91" />
+                <circle class="radar-ring" cx="140" cy="103" r="82"/><circle class="radar-ring" cx="140" cy="103" r="60"/><circle class="radar-ring" cx="140" cy="103" r="36"/><circle class="radar-ring radar-ring-core" cx="140" cy="103" r="12"/>
+                <path class="radar-crosshair" d="M140 20V186M57 103H223M81 44l118 118M199 44 81 162" />
+                <path class="radar-bearing-ticks" d="M140 15v10M181 25l-4 9M214 56l-9 5M228 103h-11M214 150l-9-5M181 181l-4-9M140 191v-10M99 181l4-9M66 150l9-5M52 103h11M66 56l9 5M99 25l4 9"/>
+                <path class="radar-sweep" d="M140 103V21A82 82 0 0 1 198 45Z" />
+                <circle class="radar-target" cx="177" cy="64" r="4"/><circle class="radar-target radar-target-small" cx="105" cy="120" r="2.5"/>
+                <circle class="radar-center" cx="140" cy="103" r="3" />
+                <path class="radar-range-scale" d="M316 21V188M316 21h25M316 49h15M316 77h25M316 105h15M316 133h25M316 161h15M316 188h25" />
+                <text class="radar-range-label" x="349" y="24">12.0</text><text class="radar-range-label" x="349" y="52">10.0</text><text class="radar-range-label" x="349" y="80">08.0</text><text class="radar-range-label" x="349" y="108">06.0</text><text class="radar-range-label" x="349" y="136">04.0</text><text class="radar-range-label" x="349" y="164">02.0</text><text class="radar-range-label" x="349" y="191">00.0</text>
+                <text x="24" y="205">AZ 080°</text><text x="230" y="205">RNG 12.4</text>
+              </svg>
+              <div class="radar-readout"><span>ORBITAL LOCK</span><strong><i></i> PERSONNEL LINK ACTIVE</strong><b>TRACK / 04</b></div>
+            </section>
+          </aside>
+        </div>
+      </section>
+      <div class="holo-cube" aria-label="Interactive rotating 3D data cube" role="group">
+        <canvas class="three-footer-cube" id="three-footer-cube" tabindex="0" role="img" aria-label="Interactive 3D cube. Move or drag the pointer to rotate." ></canvas>
+        <span>DATA CORE / 01</span>
+      </div>
+      <footer class="mission-footer">
+          <span class="footer-signature"><i></i> PERSONNEL DOSSIER <b>·</b> <span id="footer-location">EARTH STATION</span></span>
+        <span class="footer-live"><i></i> ALL SYSTEMS NOMINAL</span>
+        <div class="footer-log-area">
+          <button class="footer-log-toggle" id="footer-log-toggle" type="button" aria-controls="mission-console" aria-expanded="true">
+            <span class="footer-log-icon" aria-hidden="true">⌘</span>
+            <span>SYS.LOG</span>
+            <span class="footer-log-latest" id="footer-log-latest">MISSION LINK ESTABLISHED</span>
+            <span class="footer-log-chevron" aria-hidden="true">⌃</span>
+          </button>
+          <aside class="mission-console" id="mission-console" aria-label="Mission control live action log">
+            <div class="console-head">
+              <span class="console-lights" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span class="console-title">MISSION CONTROL <span>/ SYS.LOG</span></span>
+              <span class="console-live"><i></i> LIVE</span>
+            </div>
+            <p class="console-meta">COMMS CHANNEL 07 <span>·</span> EARTH ↔ ORBIT</p>
+            <ol class="mission-log" id="mission-log" aria-live="polite" aria-relevant="additions">
+              <li><time>00:00</time><span>INITIALIZING LINK...</span></li>
+            </ol>
+            <div class="console-bottomline">
+              <div class="console-prompt"><span>SYS&gt;</span><span id="console-current">AWAITING TELEMETRY</span><i aria-hidden="true"></i></div>
+              <time class="console-clock" id="console-clock" aria-label="Current local time">--:--:--</time>
+            </div>
+          </aside>
+        </div>
+      </footer>
+    </section>
+  </body>
+</html>
